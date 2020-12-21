@@ -5,9 +5,7 @@ import { withRouter } from "react-router-dom";
 import { dismissAlert } from "../../actions/alerts";
 import s from "./Sidebar.module.scss";
 import LinksGroup from "./LinksGroup/LinksGroup";
-import {
-  changeActiveSidebarItem
-} from "../../actions/navigation";
+import { changeActiveSidebarItem } from "../../actions/navigation";
 import { logoutUser } from "../../actions/user";
 
 import lightDashboardIcon from "../../images/light-dashboard.svg";
@@ -30,14 +28,14 @@ class Sidebar extends React.Component {
     dispatch: PropTypes.func.isRequired,
     activeItem: PropTypes.string,
     location: PropTypes.shape({
-      pathname: PropTypes.string
-    }).isRequired
+      pathname: PropTypes.string,
+    }).isRequired,
   };
 
   static defaultProps = {
     sidebarStatic: true,
     sidebarOpened: true,
-    activeItem: ""
+    activeItem: "",
   };
 
   constructor(props) {
@@ -56,16 +54,28 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-        <div className={`${(!this.props.sidebarOpened && !this.props.sidebarStatic ) ? s.sidebarClose : ''} ${s.sidebarWrapper}`} id={"sidebar-drawer"}>
+      <div
+        className={`${
+          !this.props.sidebarOpened && !this.props.sidebarStatic
+            ? s.sidebarClose
+            : ""
+        } ${s.sidebarWrapper}`}
+        id={"sidebar-drawer"}
+      >
         <nav className={s.root}>
-          <header className={s.logo} >
-            <img src={logo} style={{marginTop:6}} alt="logo" className={s.logoStyle} />
+          <header className={s.logo}>
+            <img
+              src={logo}
+              style={{ marginTop: 6 }}
+              alt="logo"
+              className={s.logoStyle}
+            />
             <span>Barbery&nbsp;</span>
           </header>
           {/* <h5 className={s.navTitle}>APP</h5> */}
           <ul className={s.nav}>
             <LinksGroup
-              onActiveSidebarItemChange={activeItem =>
+              onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
               }
               activeItem={this.props.activeItem}
@@ -209,7 +219,7 @@ class Sidebar extends React.Component {
               />
             </LinksGroup> */}
             <LinksGroup
-              onActiveSidebarItemChange={activeItem =>
+              onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
               }
               header="Account"
@@ -223,7 +233,7 @@ class Sidebar extends React.Component {
               />
             </LinksGroup>
             <LinksGroup
-              onActiveSidebarItemChange={activeItem =>
+              onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
               }
               header="Logout"

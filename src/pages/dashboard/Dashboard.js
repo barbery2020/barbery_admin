@@ -5,8 +5,10 @@ import usersImg from "../../images/usersImg.svg";
 import smileImg from "../../images/smileImg.svg";
 import totalSale from "../../images/total-sale.svg";
 import orders from "../../images/orders.svg";
+import completed from "../../images/completed.png";
 import stocksImg from "../../images/stocks.svg";
 import stocksDownImg from "../../images/stocksDown.svg";
+import pending from "../../images/pending.png";
 
 // import { chartData } from "./chartsMock";
 
@@ -558,151 +560,7 @@ class Dashboard extends React.Component {
     return (
       <div className={s.root}>
         <Row>
-          <Col xl={4}>
-            <Widget
-              title={<p style={{ fontWeight: 700 }}>Total Appointments</p>}
-              customDropDown
-            >
-              <Row className={`justify-content-between mt-3`} noGutters>
-                <Col sm={8} className={"d-flex align-items-center"}>
-                  <h3 className={"fw-semi-bold mb-0"}>
-                    {this.state.totalAppointments}
-                  </h3>
-                </Col>
-                <Col
-                  sm={4}
-                  className={"d-flex align-items-center justify-content-end"}
-                >
-                  <img src={stocksImg} alt="" className={"mr-1"} />
-                  <p className={"text-success mb-0"}>40%</p>
-                </Col>
-              </Row>
-              <Row style={{ marginBottom: -9, marginTop: -1 }}>
-                <Col sm={12}>
-                  <ApexChart
-                    className="sparkline-chart"
-                    height={80}
-                    series={this.state.orderValue.series}
-                    options={this.state.orderValue.options}
-                    type={"bar"}
-                  />
-                </Col>
-              </Row>
-            </Widget>
-          </Col>
-          <Col xl={4}>
-            <Widget
-              title={<p style={{ fontWeight: 700 }}>Total Revenue Collected</p>}
-              customDropDown
-            >
-              <Row className={`justify-content-between mt-3`} noGutters>
-                <Col sm={8} className={"d-flex align-items-center"}>
-                  <h3 className={"fw-semi-bold mb-0"}>
-                    Pkr {this.state.totalRevenue}
-                  </h3>
-                </Col>
-                <Col
-                  sm={4}
-                  className={"d-flex align-items-center justify-content-end"}
-                >
-                  <img src={stocksImg} alt="" className={"mr-1"} />
-                  <p className={"text-success mb-0"}>15%</p>
-                </Col>
-              </Row>
-              <Row style={{ marginBottom: -9, marginTop: -1 }}>
-                <Col sm={12}>
-                  <ApexChart
-                    className="sparkline-chart"
-                    height={80}
-                    series={this.state.convertionRate.series}
-                    options={this.state.convertionRate.options}
-                    type={"bar"}
-                  />
-                </Col>
-              </Row>
-            </Widget>
-          </Col>
-          <Col xl={window.innerWidth > 1280 ? 2 : 4} sm={6}>
-            <Widget>
-              <Row
-                className={`${s.row} justify-content-center align-items-center`}
-              >
-                <Col
-                  sm={12}
-                  className={
-                    "d-flex justify-content-center align-items-center mb-2"
-                  }
-                >
-                  <img src={usersImg} alt="" style={{ paddingTop: 30 }} />
-                </Col>
-                <Col
-                  sm={12}
-                  className={"d-flex justify-content-center align-items-center"}
-                >
-                  <h3 className={"fw-semi-bold pt-1 mb-0"}>
-                    {this.state.totalClients}
-                  </h3>
-                </Col>
-                <Col
-                  sm={12}
-                  className={"d-flex justify-content-center align-items-center"}
-                >
-                  <h5 className={"fw-thin pt-1 mb-0"}>Total Users</h5>
-                </Col>
-                <Col
-                  sm={12}
-                  className={
-                    "d-flex justify-content-center align-items-center pt-1"
-                  }
-                >
-                  <img src={stocksImg} alt="" className={"mr-1"} />
-                  <p className={"fw-thin text-success mb-0"}>15%</p>
-                </Col>
-              </Row>
-            </Widget>
-          </Col>
-          <Col xl={2} className={`${s.dashboardBlock}`} sm={6}>
-            <Widget>
-              <Row
-                className={`${s.row} justify-content-center align-items-center`}
-              >
-                <Col
-                  sm={12}
-                  className={
-                    "d-flex justify-content-center align-items-center mb-2"
-                  }
-                >
-                  <img src={usersImg} alt="" style={{ paddingTop: 30 }} />
-                </Col>
-                <Col
-                  sm={12}
-                  className={"d-flex justify-content-center align-items-center"}
-                >
-                  <h3 className={"fw-semi-bold pt-1 mb-0"}>
-                    {this.state.totalBarbers}
-                  </h3>
-                </Col>
-                <Col
-                  sm={12}
-                  className={"d-flex justify-content-center align-items-center"}
-                >
-                  <h5 className={"fw-thin pt-1 mb-0"}>Barber Shops</h5>
-                </Col>
-                <Col
-                  sm={12}
-                  className={
-                    "d-flex justify-content-center align-items-center pt-1"
-                  }
-                >
-                  <img src={stocksImg} alt="" className={"mr-1"} />
-                  <p className={"fw-thin text-success mb-0"}>15%</p>
-                </Col>
-              </Row>
-            </Widget>
-          </Col>
-        </Row>
-        <Row>
-          <Col xl={4}>
+          <Col xl={12}>
             <Widget
               title={<p style={{ fontWeight: 700 }}>Appointment</p>}
               customDropDown
@@ -750,7 +608,73 @@ class Dashboard extends React.Component {
               </Row>
             </Widget>
           </Col>
-          <Col xl={window.innerWidth > 1280 ? 2 : 4} sm={6}>
+        </Row>
+        <Row>
+          <Col xl={4}>
+            <Widget
+              title={<p style={{ fontWeight: 700 }}>Total Appointments</p>}
+              customDropDown
+            >
+              <Row className={`justify-content-between mt-3`} noGutters>
+                <Col sm={8} className={"d-flex align-items-center"}>
+                  <h3 className={"fw-semi-bold mb-0"}>
+                    {this.state.totalAppointments}
+                  </h3>
+                </Col>
+                {/* <Col
+                  sm={4}
+                  className={"d-flex align-items-center justify-content-end"}
+                >
+                  <img src={stocksImg} alt="" className={"mr-1"} />
+                  <p className={"text-success mb-0"}>40%</p>
+                </Col> */}
+              </Row>
+              <Row style={{ marginBottom: -9, marginTop: -1 }}>
+                <Col sm={12}>
+                  <ApexChart
+                    className="sparkline-chart"
+                    height={80}
+                    series={this.state.orderValue.series}
+                    options={this.state.orderValue.options}
+                    type={"bar"}
+                  />
+                </Col>
+              </Row>
+            </Widget>
+          </Col>
+          <Col xl={window.innerWidth > 1280 ? 4 : 12}>
+            <Widget
+              title={<p style={{ fontWeight: 700 }}>Total Revenue Collected</p>}
+              customDropDown
+            >
+              <Row className={`justify-content-between mt-3`} noGutters>
+                <Col sm={8} className={"d-flex align-items-center"}>
+                  <h3 className={"fw-semi-bold mb-0"}>
+                    Pkr {this.state.totalRevenue}
+                  </h3>
+                </Col>
+                {/* <Col
+                  sm={4}
+                  className={"d-flex align-items-center justify-content-end"}
+                >
+                  <img src={stocksImg} alt="" className={"mr-1"} />
+                  <p className={"text-success mb-0"}>15%</p>
+                </Col> */}
+              </Row>
+              <Row style={{ marginBottom: -9, marginTop: -1 }}>
+                <Col sm={12}>
+                  <ApexChart
+                    className="sparkline-chart"
+                    height={80}
+                    series={this.state.convertionRate.series}
+                    options={this.state.convertionRate.options}
+                    type={"bar"}
+                  />
+                </Col>
+              </Row>
+            </Widget>
+          </Col>
+          <Col xl={window.innerWidth > 1280 ? 4 : 12}>
             <Widget>
               <Row
                 className={`${s.row} justify-content-center align-items-center`}
@@ -761,7 +685,81 @@ class Dashboard extends React.Component {
                     "d-flex justify-content-center align-items-center mb-2"
                   }
                 >
-                  <img src={totalSale} alt="" style={{ paddingTop: 30 }} />
+                  <img src={usersImg} alt="" style={{ paddingTop: 30 }} />
+                </Col>
+                <Col
+                  sm={12}
+                  className={"d-flex justify-content-center align-items-center"}
+                >
+                  <h3 className={"fw-semi-bold pt-1 mb-0"}>
+                    {this.state.totalClients}
+                  </h3>
+                </Col>
+                <Col
+                  sm={12}
+                  className={"d-flex justify-content-center align-items-center"}
+                >
+                  <h5 className={"fw-thin pt-1 mb-0"}>Total Users</h5>
+                </Col>
+                {/* <Col
+                  sm={12}
+                  className={
+                    "d-flex justify-content-center align-items-center pt-1"
+                  }
+                >
+                  <img src={stocksImg} alt="" className={"mr-1"} />
+                  <p className={"fw-thin text-success mb-0"}>15%</p>
+                </Col> */}
+              </Row>
+            </Widget>
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            xl={window.innerWidth > 1280 ? 4 : 12}
+            className={`${s.dashboardBlock}`}
+          >
+            <Widget>
+              <Row
+                className={`${s.row} justify-content-center align-items-center`}
+              >
+                <Col
+                  sm={12}
+                  className={
+                    "d-flex justify-content-center align-items-center mb-2"
+                  }
+                >
+                  <img src={usersImg} alt="" style={{ paddingTop: 30 }} />
+                </Col>
+                <Col
+                  sm={12}
+                  className={"d-flex justify-content-center align-items-center"}
+                >
+                  <h3 className={"fw-semi-bold pt-1 mb-0"}>
+                    {this.state.totalBarbers}
+                  </h3>
+                </Col>
+                <Col
+                  sm={12}
+                  className={"d-flex justify-content-center align-items-center"}
+                >
+                  <h5 className={"fw-thin pt-1 mb-0"}>Barber Shops</h5>
+                </Col>
+              </Row>
+            </Widget>
+          </Col>
+          <Col xl={window.innerWidth > 1280 ? 4 : 12}>
+            <Widget>
+              <Row
+                className={`${s.row} justify-content-center align-items-center`}
+              >
+                <Col
+                  sm={12}
+                  className={
+                    "d-flex justify-content-center align-items-center mb-2"
+                  }
+                >
+                  <img src={pending} alt="" style={{ paddingTop: 30 }} />
                 </Col>
                 <Col
                   sm={12}
@@ -775,11 +773,9 @@ class Dashboard extends React.Component {
                   sm={12}
                   className={"d-flex justify-content-center align-items-center"}
                 >
-                  <h5 className={"fw-thin pt-1 mb-0"}>
-                    Appointments Completed
-                  </h5>
+                  <h5 className={"fw-thin pt-1 mb-0"}>Appointment Pending</h5>
                 </Col>
-                <Col
+                {/* <Col
                   sm={12}
                   className={
                     "d-flex justify-content-center align-items-center pt-1"
@@ -787,22 +783,25 @@ class Dashboard extends React.Component {
                 >
                   <img src={stocksImg} alt="" className={"mr-1"} />
                   <p className={"fw-thin text-success mb-0"}>15%</p>
-                </Col>
+                </Col> */}
               </Row>
             </Widget>
           </Col>
-          <Col xl={2} className={`${s.dashboardBlock}`} sm={6}>
+          <Col
+            xl={window.innerWidth > 1280 ? 4 : 12}
+            className={`${s.dashboardBlock}`}
+          >
             <Widget>
               <Row
                 className={`${s.row} justify-content-center align-items-center`}
               >
                 <Col
-                  sm={12}
+                  sm={16}
                   className={
                     "d-flex justify-content-center align-items-center mb-2"
                   }
                 >
-                  <img src={orders} alt="" style={{ paddingTop: 30 }} />
+                  <img src={completed} alt="" style={{ paddingTop: 30 }} />
                 </Col>
                 <Col
                   sm={12}
@@ -824,8 +823,8 @@ class Dashboard extends React.Component {
                     "d-flex justify-content-center align-items-center pt-1"
                   }
                 >
-                  <img src={stocksImg} alt="" className={"mr-1"} />
-                  <p className={"fw-thin text-success mb-0"}>15%</p>
+                  {/* <img src={stocksImg} alt="" className={"mr-1"} />
+                  <p className={"fw-thin text-success mb-0"}>15%</p> */}
                 </Col>
               </Row>
             </Widget>
