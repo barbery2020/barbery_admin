@@ -218,7 +218,7 @@ class Sidebar extends React.Component {
                 height={"24px"}
               />
             </LinksGroup> */}
-            <LinksGroup
+            {/* <LinksGroup
               onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
               }
@@ -231,7 +231,7 @@ class Sidebar extends React.Component {
                 width={"24px"}
                 height={"24px"}
               />
-            </LinksGroup>
+            </LinksGroup> */}
             <LinksGroup
               onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))

@@ -24,15 +24,15 @@ import {
   closeSidebar,
   changeActiveSidebarItem,
 } from "../../actions/navigation";
-
+import HJ from "../../images/HJ.png";
 import userAvatar from "../../images/userAvatar.png";
 import search from "../../images/search.svg";
 import notify from "../../images/notify.svg";
 import lightNotify from "../../images/light-notify.svg";
 import messages from "../../images/messages.svg";
 import lightMessages from "../../images/messages-filled.svg";
-import arrowUnactive from '../../images/Arrow 6.svg'
-import arrowActive from '../../images/Arrow 5.svg'
+import arrowUnactive from "../../images/Arrow 6.svg";
+import arrowActive from "../../images/Arrow 5.svg";
 
 import s from "./Header.module.scss"; // eslint-disable-line css-modules/no-unused-class
 
@@ -69,7 +69,7 @@ class Header extends React.Component {
       showNewMessage: false,
       hideMessage: true,
       run: true,
-      arrowImg: arrowActive
+      arrowImg: arrowActive,
     };
   }
 
@@ -101,14 +101,14 @@ class Header extends React.Component {
 
   changeArrowImg() {
     this.setState({
-      arrowImg: arrowUnactive
-    })
+      arrowImg: arrowUnactive,
+    });
   }
 
   changeArrowImgOut() {
     this.setState({
-      arrowImg: arrowActive
-    })
+      arrowImg: arrowActive,
+    });
   }
 
   // collapse/uncolappse
@@ -147,14 +147,14 @@ class Header extends React.Component {
     const { focus } = this.state;
     const { openUsersList } = this.props;
 
-    const user = JSON.parse(localStorage.getItem("user") || '{}');
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
 
     const firstUserLetter = (user.name || user.email || "P")[0].toUpperCase();
 
     return (
       <Navbar
         className={`${s.root} d-print-none`}
-        style={{ zIndex: !openUsersList ? 100 : 0, backgroundColor: '#323232' }}
+        style={{ zIndex: !openUsersList ? 100 : 0, backgroundColor: "#323232" }}
       >
         <NavItem className={`${s.toggleSidebarNav} d-md-none d-flex mr-2`}>
           <NavLink
@@ -162,13 +162,10 @@ class Header extends React.Component {
             id="toggleSidebar"
             onClick={this.toggleSidebar}
           >
-            <i
-              className={`la la-bars`}
-              style={{ color: "#000" }}
-            />
+            <i className={`la la-bars`} style={{ color: "#000" }} />
           </NavLink>
         </NavItem>
-        <NavItem className={"d-md-down-block d-md-none ml-auto"}>
+        {/* <NavItem className={"d-md-down-block d-md-none ml-auto"}>
           <img
             src={search}
             alt="search"
@@ -176,11 +173,11 @@ class Header extends React.Component {
             height="23px"
             style={{ marginRight: 12 }}
           />
-        </NavItem>
+        </NavItem> */}
         {/* <button className={`btn btn-bordered ml-auto ${s.fullVersionBtn}`} onMouseOver={() => this.changeArrowImg()} onMouseLeave={() => this.changeArrowImgOut()}>
           <a href="https://flatlogic.com/templates/one-react-template/demo" target={"_black"}>Unlock Full Version<img src={this.state.arrowImg} alt="" style={{marginLeft: 14}}/></a></button> */}
         <Form className={`d-md-down-none ml-auto`} inline>
-          <InputGroup
+          {/* <InputGroup
             onFocus={this.toggleFocus}
             onBlur={this.toggleFocus}
             className={`${cx("input-group-no-border", { focus: !!focus })}`}
@@ -188,7 +185,7 @@ class Header extends React.Component {
             <Input
               id="search-input"
               placeholder="Search"
-              className={`${cx({ focus: !!focus})} ${s.headerSearchInput}`}
+              className={`${cx({ focus: !!focus })} ${s.headerSearchInput}`}
               style={{ borderBottomLeftRadius: 4, borderTopLeftRadius: 4 }}
             />
             <InputGroupAddon addonType={"prepend"}>
@@ -200,7 +197,7 @@ class Header extends React.Component {
                 style={{ marginRight: 12 }}
               />
             </InputGroupAddon>
-          </InputGroup>
+          </InputGroup> */}
         </Form>
         <Nav>
           <Dropdown
@@ -210,11 +207,9 @@ class Header extends React.Component {
             id="basic-nav-dropdown"
             className={`${s.notificationsMenu}`}
           >
-            <DropdownToggle
+            {/* <DropdownToggle
               nav
-              className={
-                "text-white"
-              }
+              className={"text-white"}
               style={{ marginLeft: 20 }}
             >
               {this.state.notificationsOpen ? (
@@ -232,7 +227,7 @@ class Header extends React.Component {
                   />
                 </>
               )}
-            </DropdownToggle>
+            </DropdownToggle> */}
             <DropdownMenu
               right
               className={`${s.notificationsWrapper} py-0 animated animated-fast fadeInUp`}
@@ -246,7 +241,7 @@ class Header extends React.Component {
             nav
             className={`${s.notificationsMenu}`}
           >
-            <DropdownToggle
+            {/* <DropdownToggle
               nav
               className={"text-white"}
               style={{ marginLeft: 20 }}
@@ -271,7 +266,7 @@ class Header extends React.Component {
                   />
                 </>
               )}
-            </DropdownToggle>
+            </DropdownToggle> */}
             <DropdownMenu
               right
               className={`${s.notificationsWrapper} py-0 animated animated-fast fadeInUp`}
@@ -279,28 +274,30 @@ class Header extends React.Component {
               <Notifications notificationsTabSelected={2} />
             </DropdownMenu>
           </Dropdown>
-          <Dropdown nav className={`${s.notificationsMenu}`} isOpen={this.state.accountOpen}
-                    toggle={this.toggleAccount}>
+          <Dropdown
+            nav
+            className={`${s.notificationsMenu}`}
+            isOpen={this.state.accountOpen}
+            toggle={this.toggleAccount}
+          >
             <DropdownToggle
               nav
-              className={
-                "text-white"
-              }
+              className={"text-white"}
               style={{ marginLeft: 20 }}
             >
               <span
                 className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}
               >
                 {user.avatar || user.email === "admin@flatlogic.com" ? (
-                  <img src={user.avatar || userAvatar} alt="..." />
+                  <img src={user.avatar || HJ} alt="HJ" />
                 ) : (
-                  <span>{firstUserLetter}</span>
+                  <span>HJ</span>
                 )}
               </span>
             </DropdownToggle>
             <DropdownMenu
-                right
-                className={`${s.notificationsWrapper} py-0 animated animated-fast fadeInUp`}
+              right
+              className={`${s.notificationsWrapper} py-0 animated animated-fast fadeInUp`}
             >
               <Notifications notificationsTabSelected={4} />
             </DropdownMenu>

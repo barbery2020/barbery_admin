@@ -8,8 +8,8 @@ import s from "./ListGroup.module.scss";
 import settingsIcon from "../../../images/settings.svg";
 import logoutIcon from "../../../images/logout.svg";
 import accountIcon from "../../../images/account.svg";
-import {withRouter} from "react-router";
-import {connect} from "react-redux";
+import { withRouter } from "react-router";
+import { connect } from "react-redux";
 
 class MessagesDemo extends React.Component {
   constructor(props) {
@@ -22,15 +22,20 @@ class MessagesDemo extends React.Component {
   render() {
     return (
       <ListGroup className={[s.listGroupAccount, "thin-scroll"].join(" ")}>
-        <p className={`${s.listGroupTitleAccount}`}>Sara Smith</p>
-        <p className={`${s.listGroupSubtitleAccount}`}>Sara_smith@gmail.com</p>
+        <p className={`${s.listGroupTitleAccount}`}>Humza Jameel</p>
+        <p className={`${s.listGroupSubtitleAccount}`}>
+          humzajameel1439@gmail.com
+        </p>
         <ListGroupItem className={`${s.listGroupItemAccount} mt-3`}>
           <img src={settingsIcon} alt="settings" className={"mr-2"} /> Settings
         </ListGroupItem>
         <ListGroupItem className={`${s.listGroupItemAccount} mt-2`}>
           <img src={accountIcon} alt="settings" className={"mr-2"} /> Account
         </ListGroupItem>
-        <ListGroupItem className={`${s.listGroupItemAccount} mt-2 mb-3`} onClick={() => this.doLogout()}>
+        <ListGroupItem
+          className={`${s.listGroupItemAccount} mt-2 mb-3`}
+          onClick={() => this.doLogout()}
+        >
           <img src={logoutIcon} alt="settings" className={"mr-2"} /> Log out
         </ListGroupItem>
       </ListGroup>
@@ -39,10 +44,10 @@ class MessagesDemo extends React.Component {
 }
 
 function mapStateToProps(store) {
-    return {
-        sidebarOpened: store.navigation.sidebarOpened,
-        sidebarStatic: store.navigation.sidebarStatic,
-    };
+  return {
+    sidebarOpened: store.navigation.sidebarOpened,
+    sidebarStatic: store.navigation.sidebarStatic,
+  };
 }
 
 export default withRouter(connect(mapStateToProps)(MessagesDemo));
