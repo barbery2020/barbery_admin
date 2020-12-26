@@ -81,6 +81,8 @@
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
     "react-sparklines": "^1.7.0",
+    "react-spinners": "^0.9.0",
+    "react-switch": "^5.0.1",
     "react-toastify": "^5.4.0",
     "react-transition-group": "^2.5.2",
     "reactstrap": "7.1.0",
@@ -88,6 +90,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "rickshaw": "1.6.6",
+    "semantic-ui-react": "^2.0.1",
     "svg-to-pdfkit": "^0.1.8"
   },
   "devDependencies": {

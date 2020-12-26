@@ -17,12 +17,13 @@ import s from "./Layout.module.scss";
 import BreadcrumbHistory from "../BreadcrumbHistory";
 
 // pages
-import Typography from "../../pages/typography";
+import DisplayUsers from "../../pages/displayUsers/DisplayUsers";
 import Maps from "../../pages/maps";
 import Notifications from "../../pages/notifications/Notifications";
 import Icons from "../../pages/icons";
 import Tables from "../../pages/tables";
 import Charts from "../../pages/charts";
+import DisplayBarbers from "../../pages/displayBarbers/DisplayBarbers";
 
 class Layout extends React.Component {
   static propTypes = {
@@ -44,7 +45,6 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-
     this.handleResize();
     window.addEventListener("resize", this.handleResize.bind(this));
   }
@@ -62,7 +62,11 @@ class Layout extends React.Component {
   }
 
   handleCloseSidebar(e) {
-    if (e.target.closest("#sidebar-drawer") == null && this.props.sidebarOpened && window.innerWidth <= 768) {
+    if (
+      e.target.closest("#sidebar-drawer") == null &&
+      this.props.sidebarOpened &&
+      window.innerWidth <= 768
+    ) {
       this.props.dispatch(toggleSidebar());
     }
   }
@@ -90,7 +94,7 @@ class Layout extends React.Component {
           "flatlogic-one",
           "dashboard-light",
         ].join(" ")}
-        onClick={e => this.handleCloseSidebar(e)}
+        onClick={(e) => this.handleCloseSidebar(e)}
       >
         <Sidebar />
         <div className={s.wrap}>
@@ -116,7 +120,9 @@ class Layout extends React.Component {
                       exact
                       component={Dashboard}
                     />
-                    <Route path={"/app/typography"} component={Typography} />
+                    <Route path={"/app/Users"} component={DisplayUsers} />
+                    <Route path={"/app/Barbers"} component={DisplayBarbers} />
+
                     <Route path={"/app/tables"} component={Tables} />
                     <Route path={"/app/ui/maps"} component={Maps} />
                     <Route

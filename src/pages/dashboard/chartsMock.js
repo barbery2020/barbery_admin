@@ -88,7 +88,7 @@ export const chartData = {
       },
     },
     pie: {
-      series: [124, 234, 121],
+      series: [120, 140, 100],
       options: {
         chart: {
           type: "donut",

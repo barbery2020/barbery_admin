@@ -110,7 +110,7 @@ const chartData = {
       },
     },
     pie: {
-      series: [123, 123, 2222],
+      series: [123, 123, 123],
       options: {
         chart: {
           type: "donut",
@@ -517,7 +517,7 @@ class Dashboard extends React.Component {
 
   getRecords = async () => {
     await axios
-      .get("http://barbery.herokuapp.com/api/admin/records")
+      .get("https://barbery.herokuapp.com/api/admin/records")
       .then((res) => {
         console.log(res.data);
         this.setState({

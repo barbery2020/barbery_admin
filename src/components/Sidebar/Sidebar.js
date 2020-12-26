@@ -8,7 +8,7 @@ import LinksGroup from "./LinksGroup/LinksGroup";
 import { changeActiveSidebarItem } from "../../actions/navigation";
 import { logoutUser } from "../../actions/user";
 
-import lightDashboardIcon from "../../images/light-dashboard.svg";
+import usersImg from "../../images/usersImg.svg";
 import darkDashboardIcon from "../../images/dark-dashboard.svg";
 import lightTables from "../../images/tables.svg";
 import darkTables from "../../images/tables-dark.svg";
@@ -86,14 +86,14 @@ class Sidebar extends React.Component {
             >
               {window.location.href.includes("dashboard") ? (
                 <img
-                  src={darkDashboardIcon}
+                  src={usersImg}
                   alt="lightDashboard"
                   width={"24px"}
                   height={"24px"}
                 />
               ) : (
                 <img
-                  src={lightDashboardIcon}
+                  src={usersImg}
                   alt="lightDashboard"
                   width={"24px"}
                   height={"24px"}
@@ -103,32 +103,33 @@ class Sidebar extends React.Component {
           </ul>
           {/* <h5 className={s.navTitle}>TEMPLATE</h5> */}
           <ul className={s.nav}>
-            {/* <LinksGroup
-              onActiveSidebarItemChange={activeItem =>
+            <LinksGroup
+              onActiveSidebarItemChange={(activeItem) =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
               }
               activeItem={this.props.activeItem}
-              header="Typography"
+              header="Users"
               isHeader
-              link="/app/typography"
+              link="/app/Users"
               index="main"
             >
-              {window.location.href.includes("typography") ? (
+              {window.location.href.includes("Users") ? (
                 <img
-                  src={darkTypography}
+                  src={usersImg}
                   alt="lightDashboard"
                   width={"24px"}
                   height={"24px"}
                 />
               ) : (
                 <img
-                  src={lightTypography}
+                  src={usersImg}
                   alt="lightDashboard"
                   width={"24px"}
                   height={"24px"}
                 />
               )}
-            </LinksGroup> */}
+            </LinksGroup>
+
             {/* <LinksGroup
               onActiveSidebarItemChange={activeItem =>
                 this.props.dispatch(changeActiveSidebarItem(activeItem))
@@ -201,6 +202,35 @@ class Sidebar extends React.Component {
               )}
             </LinksGroup> */}
           </ul>
+          <ul className={s.nav}>
+            <LinksGroup
+              onActiveSidebarItemChange={(activeItem) =>
+                this.props.dispatch(changeActiveSidebarItem(activeItem))
+              }
+              activeItem={this.props.activeItem}
+              header="Barbers"
+              isHeader
+              link="/app/Barbers"
+              index="main"
+            >
+              {window.location.href.includes("Barbers") ? (
+                <img
+                  src={usersImg}
+                  alt="lightDashboard"
+                  width={"24px"}
+                  height={"24px"}
+                />
+              ) : (
+                <img
+                  src={usersImg}
+                  alt="lightDashboard"
+                  width={"24px"}
+                  height={"24px"}
+                />
+              )}
+            </LinksGroup>
+          </ul>
+
           <ul className={s.downNav}>
             <hr />
             {/* <LinksGroup
